@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bungo Stray Dogs</title>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 50px;
+            /* max-width: 100%; */
+        }
+
+        .bg {
+            /*Background Image*/
+            background-image: url(./bg_image.jpg);
+            height: 50%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .overlay {
+            height: 0%;
+            width: 100%;
+            position: fixed;
+            z-index: 1;
+            top: 70;
+            left: 80;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow-y: hidden;
+            transition: 0.5s;
+        }
+
+        .overlay-content {
+            position: relative;
+            top: 20%;
+            width: 100%;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .overlay a {
+            padding: 8px;
+            text-decoration: none;
+            font-size: 36px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .overlay a:hover,
+        .overlay a:focus {
+            color: #f1f1f1;
+        }
+
+        .overlay .closebtn {
+            position: absolute;
+            top: 20px;
+            right: 45px;
+            font-size: 60px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .overlay {
+                overflow-y: auto;
+            }
+
+            .overlay a {
+                font-size: 20px
+            }
+
+            .overlay .closebtn {
+                font-size: 40px;
+                top: 15px;
+                right: 35px;
+            }
+        }
+
+        .buttons>a {
+            text-decoration: none;
+            display: inline-block;
+            padding: 8px 16px;
+        }
+
+        .buttons>a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .previous {
+            background-color: #f1f1f1;
+            color: black;
+        }
+
+        .next {
+            background-color: #04AA6D;
+            color: white;
+        }
+
+        .round {
+            border-radius: 50%;
+        }
+
+        iframe {
+            margin-left: 3vw;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg">
+        <div id="myNav" class="overlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content">
+                <a href="../anime.html">Anime Homepage</a>
+                <a href="">Form</a>
+                <a href="#">Q/A</a>
+            </div>
+        </div>
+        <span style="font-size:30px;cursor:pointer;color:gray;" onclick="openNav()">&#9776; open</span>
+    </div>
+
+
+
+    <script>
+        function openNav() {
+            document.getElementById("myNav").style.height = "100%";
+        }
+
+        function closeNav() {
+            document.getElementById("myNav").style.height = "0%";
+        }
+    </script>
+
+    <br>
+
+    <div class="buttons">
+        <a href="../jujutsu_kaisen_tvseries/index.html" class="previous round">&#8249;</a>
+        <a href="#" class="next round">&#8250;</a>
+    </div>
+
+
+    <h1>Bungo Stray Dogs</h1>
+
+    <h2>WATCH THE ANIME TRAILER NOW!</h2>
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/f9OV_KzR3SM" title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe><br><br><br>
+
+
+    <!-- <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/index.html">Sai Donepudi</a>
+            </div>
+            <ul class="nav navbar-nav"> -->
+    <!-- <li class="active"><a href="../index.html" target="_blank">Home</a></li> -->
+    <!-- <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span
+                            class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Page 1-1</a></li>
+                        <li><a href="#">Page 1-2</a></li>
+                        <li><a href="#">Page 1-3</a></li>
+                    </ul>
+                </li>
+                <li><a href="/contact/contact.html">Contact</a></li>
+                <li><a href="/part_1/in_class_work.html">part_1(In Class Work)</a></li>
+                <li><a href="/animation/index.html">Animation</a></li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="/art/art.html">Art<span
+                            class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Piece 1</a></li>
+                        <li><a href="#">Piece 2</a></li>
+                        <li><a href="#">Piece 3</a></li>
+                    </ul>
+                </li>
+                <li><a href="/books/books.html">Books</a></li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="../anime.html">Anime<span
+                            class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./index.html">HunterXHunter</a></li>
+                        <li><a href="../attack_on_titan/index.html">Attack On Titan</a></li>
+                        <li><a href="../the_way_of_the_househusband/index.html">The Way of the Househusband</a></li>
+                        <li><a href="../the_silent_voice/index.html">The Silent Voice</a></li>
+                        <li><a href="../the_disastrous_life_of_saiki_k/index.html">The Disastrous Life of Saiki K.</a></li>
+                        <li><a href="../buddy_daddies/index.html">Buddy Daddies</a></li>
+                        <li><a href="../my_neighbor_totoro/index.html">My Neighbor Totoro</a></li>
+                        <li><a href="../grave_of_the_fireflies/index.html">Grave Of The Fireflies</a></li>
+                        <li><a href="../kikis_delivery_service/index.html">Kiki's Delivery Service</a></li>
+                        <li><a href="../tomo_chan_is_a_girl/index.html">Tomo-Chan is a Girl!</a></li>
+                        <li><a href="../jujutsu_kaisen_0_movie/index.html">Jujutsu Kaisen 0: The Movie</a></li>
+                        <li><a href="../jujutsu_kaisen_tvseries/index.html">Jujutsu Kaisen (TV series)</a></li>
+                    </ul>
+                </li>
+                <li><a href="/pet/pet.html">Pet</a></li>
+            </ul>
+        </div>
+    </nav> -->
+
+    <main>
+    </main>
+</body>
+
+</html>

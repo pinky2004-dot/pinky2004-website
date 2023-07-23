@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-color: #CB769E;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        header {
+            display: block;
+            position: relative;
+            width: 60vw;
+            height: 20vw;
+        }
+
+        h1,
+        span.copy {
+            font-family: "Lilita One", cursive;
+            text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
+            font-size: 10vw;
+            display: block;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            line-height: 2;
+            height: 20vw;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #e7e7e7;
+            z-index: 50;
+        }
+
+        .copy-1 {
+            transform: perspective(500px) translate3d(0, 0, -15px);
+            color: #2E933C;
+            z-index: 40;
+        }
+
+        .copy-2 {
+            transform: perspective(500px) translate3d(0, 0, -30px);
+            color: #E3B23C;
+            z-index: 30;
+        }
+
+        .copy-3 {
+            transform: perspective(500px) translate3d(0, 0, -45px);
+            color: #6020ae;
+            z-index: 20;
+        }
+
+        .copy-4 {
+            transform: perspective(500px) translate3d(0, 0, -60px);
+            color: #eda96d;
+            z-index: 10;
+        }
+
+        section.card {
+            background: #e3b23c;
+            border-radius: 24px 24px 24px 48px;
+            padding: 48px 48px 48px 308px;
+            margin: 84px 0;
+            width: 60vw;
+            max-width: 920px;
+            min-width: 640px;
+            display: flex;
+            flex-direction: row;
+            align-self: flex-start;
+            position: relative;
+            box-shadow:
+                5px 0 0 0 fade(#ccc, 30%),
+                -5px 0 0 0 fade(#ccc, 30%),
+                0 5px 0 0 fade(#ccc, 30%);
+
+            .text-content {
+                display: flex;
+                flex-direction: column;
+                width: calc(60vw - 192px);
+
+                h3 {
+                    margin: 0;
+                    font-size: 1.5em;
+                    max-width: 20ch;
+                }
+
+                p {
+                    margin: 16px 0 24px;
+                    max-width: 36ch;
+                }
+
+                a {
+                    border: 3px solid #000;
+                    color: #000;
+                    align-self: flex-start;
+                    text-decoration: none;
+                    padding: 16px 32px;
+                    border-radius: 12px;
+                    transition: 400ms all;
+
+                    &:hover {
+                        background: #000;
+                        color: white
+                    }
+                }
+            }
+
+            .visual {
+                width: 240px;
+                height: 100%;
+                position: absolute;
+                top: -24px;
+                left: 24px;
+                overflow: hidden;
+                border-radius: 24px;
+                box-shadow:
+                    1px 2px 6px fade(white, 25%),
+                    2px 6px 12px fade(black, 25%);
+
+                img {
+                    height: 110%
+                }
+            }
+
+            &:nth-of-type(odd) {
+                margin: 0 0 0 248px;
+                border-radius: 24px 24px 48px 24px;
+                padding: 48px 308px 48px 60px;
+
+                .visual {
+                    right: 24px;
+                    left: auto
+                }
+
+                .text-content a {
+                    align-self: flex-start
+                }
+            }
+
+        }
+
+        article {
+            margin: auto;
+            display: block;
+            width: calc(60vw + 248px);
+            max-width: calc(920px + 248px);
+            min-width: calc(640px + 248px);
+        }
+
+        @media all and (max-width:1100px) {
+            body {
+                padding: 96px 48px 24px
+            }
+
+            article {
+                width: 100%;
+                max-width: 100%;
+                min-width: 100%
+            }
+
+            section.card {
+                width: 100%;
+                max-width: 100%;
+                min-width: 100%;
+
+                .text-content {
+                    width: 100%
+                }
+
+                &:nth-of-type(odd) {
+                    margin: 0
+                }
+            }
+        }
+
+        @media all and (max-width:720px) {
+            body {
+                padding: 48px 24px 0
+            }
+
+            section.card {
+                margin: 64px 0;
+                padding: 88px 36px 36px;
+                flex-direction: column;
+                border-radius: 24px;
+
+                &:nth-of-type(odd) {
+                    padding: 88px 36px 36px;
+                    border-radius: 24px;
+                }
+
+                .text-content {
+                    h3 {
+                        max-width: calc(100% - 150px);
+                        font-size: 1em
+                    }
+
+                    p,
+                    a {
+                        font-size: 0.8em
+                    }
+                }
+
+                .visual,
+                &:nth-of-type(odd) .visual {
+                    width: 150px;
+                    height: 150px;
+                    right: 16px;
+                    left: auto;
+
+                    img {
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+            }
+        }
+
+        html {
+            box-sizing: border-box;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="../index.html">Sai Donepudi</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <!-- <li class="active"><a href="../index.html" target="_blank">Home</a></li> -->
+                <li><a href="../professional_work/prof_work.html">Professional Work</a></li>
+                <li><a href="../contact/contact.html">Contact</a></li>
+                <li><a href="../part_1/in_class_work.html">part_1(In Class Work)</a></li>
+                <li><a href="../animation/index.html">Animation</a></li>
+                <li><a href="../art/art.html">Art</a></li>
+                <li><a href="./books.html">Books</a></li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"
+                        href="../anime/anime.html">Anime<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../anime/anime.html">Anime Homepage</a></li>
+                        <li><a href="../anime/hunter_x_hunter/index.html">HunterXHunter</a></li>
+                        <li><a href="../anime/attack_on_titan/index.html">Attack On Titan</a></li>
+                        <li><a href="../anime/the_way_of_the_househusband/index.html">The Way of the Househusband</a>
+                        </li>
+                        <li><a href="../anime/the_silent_voice/index.html">The Silent Voice</a></li>
+                        <li><a href="../anime/the_disastrous_life_of_saiki_k/index.html">The Disastrous Life of Saiki
+                                K.</a></li>
+                        <li><a href="../anime/buddy_daddies/index.html">Buddy Daddies</a></li>
+                        <li><a href="../anime/my_neighbor_totoro/index.html">My Neighbor Totoro</a></li>
+                        <li><a href="../anime/grave_of_the_fireflies/index.html">Grave Of The Fireflies</a></li>
+                        <li><a href="../anime/kikis_delivery_service/index.html">Kiki's Delivery Service</a></li>
+                        <li><a href="../anime/tomo_chan_is_a_girl/index.html">Tomo-Chan is a Girl!</a></li>
+                        <li><a href="../anime/jujutsu_kaisen_0_movie/index.html">Jujutsu Kaisen 0: The Movie</a></li>
+                        <li><a href="../anime/jujutsu_kaisen_tvseries/index.html">Jujutsu Kaisen (TV series)</a></li>
+                        <li><a href="../anime/bungo_stray_dogs/index.html">Bungo Stray Dogs</a></li>
+                    </ul>
+                </li>
+                <li><a href="../pet/pet.html">Pet</a></li>
+                <li><a href="../travel/travel.html">Travel Destinations</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container" id="container">
+            <header>
+                <h1>Books</h1>
+                <span aria-hidden="true" class="copy copy-1">Books</span>
+                <span aria-hidden="true" class="copy copy-1">Books</span>
+                <span aria-hidden="true" class="copy copy-1">Books</span>
+                <span aria-hidden="true" class="copy copy-1">Books</span>
+            </header>
+        </div>
+
+        <script>
+            const mouse = newV2();
+            const center = newV2();
+            const distanceFromCenter = newV2();
+            const distanceLerped = newV2();
+            let simulateMouseMovement = true;
+
+            const perspective = 500;
+            const translateZ = -12;
+            const rotate = 3;
+            const skew = 3;
+
+            const container = document.getElementById("container");
+            const copies = document.getElementsByClassName("copy");
+
+            function updateCenter() {
+                const rect = container.getBoundingClientRect();
+                center.x = rect.left + rect.width / 2;
+                center.y = rect.top + rect.height / 2;
+            }
+
+            function trackMousePosition(event) {
+                simulateMouseMovement = false;
+                mouse.x = event.clientX;
+                mouse.y = event.clientY;
+                distanceFromCenter.x = center.x - mouse.x;
+                distanceFromCenter.y = center.y - mouse.y;
+            }
+
+            function fakeMousePosition(t) {
+                distanceFromCenter.x = Math.sin(t / 500) * window.innerWidth * 0.5;
+                distanceFromCenter.y = Math.cos(t / 500) * window.innerWidth * 0.2;
+            }
+
+            function updateTextPosition(t) {
+                if (simulateMouseMovement) fakeMousePosition(t);
+
+                lerpV2(distanceLerped, distanceFromCenter);
+
+                for (var i = 1; i < copies.length + 1; i++) {
+                    const copy = copies[i - 1];
+                    copy.style.transform = makeTransformString(
+                        i * distanceLerped.y * 0.03,
+                        i * translateZ,
+                        i * rotate * (distanceLerped.x * 0.003),
+                        i * skew * (distanceLerped.x * 0.003)
+                    );
+                }
+
+                requestAnimationFrame(updateTextPosition);
+            }
+
+            function makeTransformString(y, z, rotate, skew) {
+                return `perspective(${perspective}px) translate3d(0px, ${y}px, ${z}px) rotate(${rotate}deg) skew(${skew}deg)`;
+            }
+
+            function lerpV2(position, targetPosition) {
+                position.x += (targetPosition.x - position.x) * 0.2;
+                position.y += (targetPosition.y - position.y) * 0.2;
+            }
+
+            function newV2(x = 0, y = 0) {
+                return {
+                    x: x,
+                    y: y
+                };
+            }
+
+            updateCenter();
+            document.addEventListener("mousemove", trackMousePosition);
+            window.addEventListener("resize", updateCenter);
+            requestAnimationFrame(updateTextPosition);
+        </script>
+
+        <article>
+            <section class="card">
+                <div class="text-content">
+                    <h3>When</h3>
+                    <p>Victoria Laurie</p>
+                    <p>
+                        Maddie Fynn is a shy high school junior cursed with an eerie intuitive ability – 
+                        she can “see” a series of unique digits hovering above the foreheads of each person she encounters. 
+                        As she matures, Maddie comes to understand that these mysterious digits are death dates, 
+                        and just like birthdays, everyone has one.
+                    </p>
+                    <a href="https://www.victorialaurie.com/mystery-novels" target="_blank">Visit</a>
+                </div>
+                <div class="visual">
+                    <img src="./pictures/when.jpg" alt="Book with a girl on the cover"/>
+                </div>
+            </section>
+
+            <section class="card">
+                <div class="text-content">
+                    <h3>Red Queen</h3>
+                    <p>Victoria Aveyard</p>
+                    <p>
+                        Mare Barrow’s world is divided by blood—those with common, 
+                        Red blood serve the Silver-blooded elite, who are gifted with superhuman abilities. 
+                        Mare is a Red, scraping by as a thief in a poor, rural village, 
+                        until a twist of fate throws her in front of the Silver court. 
+                        Before the king, princes, and all the nobles, she discovers she has an ability of her own.
+                    </p>
+                    <a href="https://victoriaaveyard.com/book/red-queen/" target="_blank">Visit</a>
+                </div>
+                <div class="visual">
+                    <img src="./pictures/red_queen.jpg" alt="Book named 'Red Queen'" />
+                </div>
+            </section>
+
+            <section class="card">
+                <div class="text-content">
+                    <h3>The Mortal Instruments (series)</h3>
+                    <p>Cassandra Clare</p>
+                    <p>
+                        Clary Fray, who interacts with a group of Nephilim known as Shadowhunters 
+                        while also discovering her own heritage and her family history. 
+                        The Shadowhunters protect the world of mundane/human people, who are also called mundanes or "mundies", 
+                        from dark forces beyond their world.
+                    </p>
+                    <a href="https://cassandraclare.com/series/the-mortal-instruments/" target="_blank">Visit</a>
+                </div>
+                <div class="visual">
+                    <img src="./pictures/mortal_instru.jpg" alt="Book Collection" />
+                </div>
+            </section>
+
+            <section class="card">
+                <div class="text-content">
+                    <h3>The Legend (series)</h3>
+                    <p>Marie Lu</p>
+                    <p>
+                        In a violent, futuristic, half-flooded Los Angeles governed by martial law, 
+                        fifteen year old Day lives on the streets as the country's most wanted criminal. 
+                        When a murder forces him to cross paths with June--a wealthy, 
+                        brilliant fifteen year old girl loyal to the state--the two are 
+                        thrown into direct opposition and combat. But are they truly meant to be enemies? 
+                        Or is there more to their society than meets the eye?
+                    </p>
+                    <a href="https://marielu.com/books" target="_blank">Visit</a>
+                </div>
+                <div class="visual">
+                    <img src="./pictures/legend.jpg" alt="Book Cover" />
+                </div>
+            </section>
+
+            <section class="card">
+                <div class="text-content">
+                    <h3>Hatchet</h3>
+                    <p>Gary Paulsen</p>
+                    <p>
+                        Brian Robeson is the thirteen-year-old son of divorced parents.
+                        As he travels from Hampton on a single-engine Cessna bush plane to visit 
+                        his father in the oil fields of Northern Canada for the summer, 
+                        the pilot suddenly suffers a massive heart attack and dies. 
+                        Brian tries to land the plane, but ends up crash-landing into a lake, 
+                        in the middle of a vast forest.
+                    </p>
+                    <a href="https://www.amazon.com/Hatchet-Gary-Paulsen/dp/1416936475" target="_blank">Visit</a>
+                </div>
+                <div class="visual">
+                    <img src="./pictures/hatchet.jpg" alt="Book Cover" />
+                </div>
+            </section>
+
+            <section class="card">
+                <div class="text-content">
+                    <h3>The Song of Achilles</h3>
+                    <p>Madeline Miller</p>
+                    <p>
+                        Achilles, "the best of all the Greeks," son of the cruel sea goddess 
+                        Thetis and the legendary king Peleus, is strong, swift, and beautiful, 
+                        irresistible to all who meet him. Patroclus is an awkward young prince, 
+                        exiled from his homeland after an act of shocking violence. 
+                        Brought together by chance, they forge an inseparable bond, despite risking the gods' wrath.
+                    </p>
+                    <a href="https://madelinemiller.com/the-song-of-achilles/" target="_blank">Visit</a>
+                </div>
+                <div class="visual">
+                    <img src="./pictures/song_of_achilles.jpg" alt="Book Cover" />
+                </div>
+            </section>
+
+        </article>
+
+
+
+    </main>
+</body>
+
+</html>
